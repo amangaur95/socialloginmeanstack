@@ -1,0 +1,16 @@
+<div *ngIf="result_verifystatus.linkexpiremsg">
+    <h3>{{ result_verifystatus.linkexpiremsg.msg1 }} {{ result_verifystatus.linkexpiremsg.msg2 }}</h3>
+    <p>Click on below link for new verify Link</p>
+    <a href="">Resend verification link</a>
+</div>
+
+<div *ngIf="result_verifystatus.successverification">
+    <h3>{{ result_verifystatus.successverification.msg1 }} {{ result_verifystatus.successverification.msg2 }}</h3>
+    <p>You can <a routerLink="/login">Login</a> now</p>
+</div>
+
+<div *ngIf="result_verifystatus.userinvalidmsg">
+    <h3>{{ result_verifystatus.userinvalidmsg.msg1 }} {{ result_verifystatus.userinvalidmsg.msg2 }}</h3>
+    <p>Click on below link for new verify Link</p>
+    <a href="">Resend verification link</a>
+</div>

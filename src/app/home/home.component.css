@@ -1,0 +1,14 @@
+h2 {
+    width: 100%;
+    text-align:center;
+}
+.login_btn{
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+}
+.signup_btn{
+    margin-top: 70px;
+    width: 100%;
+    text-align: center;
+}

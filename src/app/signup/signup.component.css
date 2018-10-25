@@ -1,0 +1,21 @@
+.box{
+    margin-top:50px;
+    padding:40px 40px 40px 40px;
+    border: 1px solid #dfdfdf;
+    max-width:600px;
+}
+#have_account{
+    font-weight: bold;
+}
+#login_link{
+    font-weight: bold;
+}
+#create{
+    margin-top: 7px;
+}
+#login_btn{
+    margin: 20px 0 0 45px;
+}
+#tag{
+margin-top: 40px;
+}

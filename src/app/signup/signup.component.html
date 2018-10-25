@@ -1,0 +1,63 @@
+<p-dialog header="Account is active through {{ provider_name }}" [(visible)]="display" [modal]="true" [responsive]="true" [width]="350" [minWidth]="200" [minY]="70" 
+        [maximizable]="true" [baseZIndex]="10000">
+  <div *ngIf="provider_name==='facebook'">
+    <button id="login_btn" class="btn btn-primary" (click)="socialSignIn('facebook')">LOG IN WITH {{ provider_name | uppercase }}</button>
+  </div>
+  <div *ngIf="provider_name==='google'">
+    <button id="login_btn" class="btn btn-danger" (click)="socialSignIn('google')">LOG IN WITH {{ provider_name | uppercase }}</button>
+  </div>
+  <p id="tag">If you wish to set a new password, click the button below and we'll mail you a password reset link</p>
+  <p-footer>
+    <button class="btn btn-danger" (click)="setPassword()">Set Password</button>
+  </p-footer>
+</p-dialog>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="box">
+              <form [formGroup]="angForm" novalidate (submit)="addUser()">
+                <div class="form-group">
+                  <label class="col-md-4">Name</label>
+                  <input type="text" class="form-control" name="name" formControlName="name" #name/>
+                </div>
+                <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+                  <div *ngIf="angForm.controls['name'].errors.required">
+                    Name is required.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-4">User Name</label>
+                  <input type="text" class="form-control" name="username" formControlName="username" #username/>
+                </div>
+                <div *ngIf="angForm.controls['username'].invalid && (angForm.controls['username'].dirty || angForm.controls['username'].touched)" class="alert alert-danger">
+                  <div *ngIf="angForm.controls['username'].errors.required">
+                    User Name is required.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-4">Email</label>
+                  <input type="email" class="form-control" name="email" formControlName="email" #email/>
+                </div>
+                <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
+                  <div *ngIf="angForm.controls['email'].errors.required">
+                    Email is required.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-4">Password</label>
+                  <input type="password" class="form-control" name="password" formControlName="password" #password/>
+                </div>
+                <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)" class="alert alert-danger">
+                  <div *ngIf="angForm.controls['password'].errors.required">
+                    Password is required.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button type="submit" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">SignUp</button>
+                </div>
+                <p id="have_account">Already Have an Account<a routerLink="/login"><span id="login_link"> Login!!</span></a></p>
+              </form>
+            </div><!--end of box-->
+      </div><!--end of col-md-12-->
+    </div><!--end of row-->
+  </div><!--end of container-->
